@@ -6,16 +6,23 @@ def analyze_sentiment(input_path, output_path):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     df = pd.read_csv(input_path)
 
-    # Load sentiment model
     classifier = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
 
-    # Apply to reviews
-    results = classifier(df["review"].tolist(), truncation=True)
+    sentiments = []
+    scores = []
 
-    # Add sentiment columns
-    df["sentiment_label"] = [res["label"] for res in results]
-    df["sentiment_score"] = [res["score"] for res in results]
+    for review in df["review"].astype(str):
+        try:
+            res = classifier(review[:512])[0]
+            sentiments.append(res["label"])
+            scores.append(res["score"])
+        except Exception:
+            sentiments.append("unknown")
+            scores.append(0.0)
+
+    df["sentiment_label"] = sentiments
+    df["sentiment_score"] = scores
 
     df.to_csv(output_path, index=False)
-    print(f"Saved sentiment results to {output_path}")
+    print(f" Sentiment saved to {output_path}")
     return df
