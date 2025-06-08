@@ -1,4 +1,4 @@
-# Task 2 – Sentiment and Thematic Analysis for Fintech App Reviews
+# Task and two – Sentiment and Thematic Analysis for Fintech App Reviews
 
 This project performs sentiment and thematic analysis on user reviews of Ethiopian bank mobile apps from the Google Play Store. It uses transformer-based models for sentiment classification and TF-IDF for keyword extraction, clustering those keywords into themes.
 
@@ -90,7 +90,7 @@ notebook/task\_2\_analysis.ipynb
 
 ##  Status
 
-Task 2 is fully completed:
+Task one and two are fully completed:
 - BERT-based sentiment analysis (English only)
 - TF-IDF keyword extraction
 - Rule-based theme grouping
