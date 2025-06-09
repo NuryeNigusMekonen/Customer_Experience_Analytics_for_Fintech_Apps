@@ -19,45 +19,46 @@ This solution is part of a 10 Academy AI Mastery program. It includes:
 ##  Folder Structure
 
 ```bash
-├── data/  
-        cleaned/
-                all_banks_reviews_clean.csv
-                bank_of_abyssinia_reviews_clean.csv
-                commercial_bank_of_eethiopia_reviews_clean.csv
-                dashen_bank_reviews_clean.csv
-        bank_of_abyssinia_reviews.csv
-        commeericial_bank_of_ethiopia_reviews.csv
-        dashen_bank_reviews                    # Original raw datasets
+customer_experience_analytics_for_fintech_apps/
+├── data/
+│   ├── cleaned/
+│   │   ├── all_banks_reviews_clean.csv
+│   │   ├── bank_of_abyssinia_reviews_clean.csv
+│   │   ├── commercial_bank_of_ethiopia_reviews_clean.csv
+│   │   └── dashen_bank_reviews_clean.csv
+│   ├── bank_of_abyssinia_reviews.csv
+│   ├── commercial_bank_of_ethiopia_reviews.csv
+│   └── dashen_bank_reviews.csv               # Original raw datasets
 ├── outputs/
-│   ├── sentiment/ 
-            all_banks_sentiment.csv
-            reviews_with_sentiment.csv
-            sentiment_by_bank_and_ratings.csv            # Reviews with sentiment scores and labels
-│   ├── themes/ 
-            reviews_with_themes.csv
-            theme_summary_per_bank.csv
-    |---visuals/               # Thematic clustering outputs (topics/themes)
-            rating_distribution.png
-            sentiment_distribution.png
-            theme_frequency.png
-├── src/                       # Source code
-│   ├── preprocessing.py   
-        cleaning.py
-        meerge_sentiment.py
-        scraping.py
-            # Data cleaning and normalization
-│   ├── sentiment_analysis.py  # Sentiment model and scoring
-│   ├── topic_modeling.py      # BERTopic-based theme extraction
+│   ├── sentiment/
+│   │   ├── all_banks_sentiment.csv
+│   │   ├── reviews_with_sentiment.csv
+│   │   └── sentiment_by_bank_and_ratings.csv  # Reviews with sentiment scores and labels
+│   ├── themes/
+│   │   ├── reviews_with_themes.csv
+│   │   └── theme_summary_per_bank.csv          # Thematic clustering outputs (topics/themes)
+│   └── visuals/
+│       ├── rating_distribution.png
+│       ├── sentiment_distribution.png
+│       └── theme_frequency.png
+├── src/
+│   ├── cleaning.py                 # Data cleaning and normalization
+│   ├── merge_sentiment.py          # Merge datasets with sentiment scores
+│   ├── preprocessing.py            # Possibly general preprocessing utilities
+│   ├── scraping.py                 # Data scraping scripts
+│   ├── sentiment_analysis.py       # Sentiment model and scoring
+│   └── topic_modeling.py            # BERTopic-based theme extraction
 ├── notebooks/
 │   ├── analysis.ipynb
-│   ├── database_insetion.ipynb
+│   ├── database_insertion.ipynb
 │   ├── scrap_and_save.ipynb
 │   ├── visual_analysis.ipynb
-    ├── visual.ipynb
+│   └── visual.ipynb
 ├── README.md
-    requirements.txt
-    .gitignore
-    LICENSE
+├── requirements.txt
+├── .gitignore
+└── LICENSE
+
 ````
 
 ---
