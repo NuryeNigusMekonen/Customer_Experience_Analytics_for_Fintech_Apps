@@ -19,21 +19,45 @@ This solution is part of a 10 Academy AI Mastery program. It includes:
 ##  Folder Structure
 
 ```bash
-├── data/                      # Original raw datasets
+├── data/  
+        cleaned/
+                all_banks_reviews_clean.csv
+                bank_of_abyssinia_reviews_clean.csv
+                commercial_bank_of_eethiopia_reviews_clean.csv
+                dashen_bank_reviews_clean.csv
+        bank_of_abyssinia_reviews.csv
+        commeericial_bank_of_ethiopia_reviews.csv
+        dashen_bank_reviews                    # Original raw datasets
 ├── outputs/
-│   ├── sentiment/             # Reviews with sentiment scores and labels
-│   ├── themes/                # Thematic clustering outputs (topics/themes)
+│   ├── sentiment/ 
+            all_banks_sentiment.csv
+            reviews_with_sentiment.csv
+            sentiment_by_bank_and_ratings.csv            # Reviews with sentiment scores and labels
+│   ├── themes/ 
+            reviews_with_themes.csv
+            theme_summary_per_bank.csv
+    |---visuals/               # Thematic clustering outputs (topics/themes)
+            rating_distribution.png
+            sentiment_distribution.png
+            theme_frequency.png
 ├── src/                       # Source code
-│   ├── preprocessing.py       # Data cleaning and normalization
+│   ├── preprocessing.py   
+        cleaning.py
+        meerge_sentiment.py
+        scraping.py
+            # Data cleaning and normalization
 │   ├── sentiment_analysis.py  # Sentiment model and scoring
 │   ├── topic_modeling.py      # BERTopic-based theme extraction
-│   ├── utils.py               # Utility functions
 ├── notebooks/
-│   ├── task_1_eda.ipynb
-│   ├── task_2_sentiment.ipynb
-│   ├── task_3_themes.ipynb
-│   ├── task_4_insights.ipynb
+│   ├── analysis.ipynb
+│   ├── database_insetion.ipynb
+│   ├── scrap_and_save.ipynb
+│   ├── visual_analysis.ipynb
+    ├── visual.ipynb
 ├── README.md
+    requirements.txt
+    .gitignore
+    LICENSE
 ````
 
 ---
