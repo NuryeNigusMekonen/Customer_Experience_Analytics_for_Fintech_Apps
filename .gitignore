@@ -1,6 +1,8 @@
 data/
 *.csv
 UX-venv/
+*.docs
+*.docx
 db/db_config.py
 # Ignore Python bytecode files
 __pycache__/

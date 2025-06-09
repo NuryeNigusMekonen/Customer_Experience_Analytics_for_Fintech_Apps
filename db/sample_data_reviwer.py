@@ -9,7 +9,7 @@ def print_sample_reviews(limit=10):
     )
     cursor = conn.cursor()
     
-    query = f"SELECT * FROM app_reviews WHERE ROWNUM <= {limit}"
+    query = f"SELECT * FROM Bank_reviews WHERE ROWNUM <= {limit}"
     cursor.execute(query)
     
     rows = cursor.fetchall()
