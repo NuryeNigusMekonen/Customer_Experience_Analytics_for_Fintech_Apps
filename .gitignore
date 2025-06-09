@@ -1,3 +1,36 @@
 data/
 *.csv
 UX-venv/
+db/db_config.py
+# Ignore Python bytecode files
+__pycache__/
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+# Ignore virtual environment directories
+UX-venv/
+# Ignore log files
+*.log
+# Ignore environment variable files
+.env
+# Ignore coverage reports
+.coverage
+# Ignore IDE specific files
+.idea/
+# Ignore macOS specific files
+.DS_Store
+# Ignore Windows specific files
+Thumbs.db
+# Ignore Python egg files
+*.egg
+# Ignore distribution files
+dist/
+# Ignore build directories
+build/
+# Ignore package management files
+*.egg-info/
+# Ignore test output files
+test_output/
+# Ignore Docker files
+Dockerfile
+# Ignore Docker Compose files
+docker-compose.yml

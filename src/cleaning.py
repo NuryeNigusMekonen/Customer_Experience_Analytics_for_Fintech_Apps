@@ -1,5 +1,18 @@
 import os
 import pandas as pd
+from langdetect import detect, DetectorFactory
+
+DetectorFactory.seed = 0  # For consistent results
+
+def is_english(text):
+    try:
+        if not isinstance(text, str):
+            return False
+        if len(text.strip().split()) < 4:  # Skip short reviews
+            return False
+        return detect(text.strip()) == "en"
+    except:
+        return False
 
 def preprocess_bank_reviews(input_dir="../data", output_dir="../data/cleaned"):
     os.makedirs(output_dir, exist_ok=True)
@@ -18,11 +31,17 @@ def preprocess_bank_reviews(input_dir="../data", output_dir="../data/cleaned"):
 
         try:
             df = pd.read_csv(input_path)
-            print(f"Loaded {len(df)} reviews for {bank}")
+            print(f" Loaded {len(df)} reviews for {bank}")
 
             # Drop duplicates and rows with missing reviews or ratings
             df.drop_duplicates(subset="review", inplace=True)
             df.dropna(subset=["review", "rating"], inplace=True)
+
+            # Filter for English reviews only
+            df["is_english"] = df["review"].astype(str).apply(is_english)
+            df = df[df["is_english"]].drop(columns=["is_english"])
+
+            print(f" {len(df)} English reviews retained after filtering")
 
             # Normalize date format
             df["date"] = pd.to_datetime(df["date"], errors='coerce').dt.date.astype(str)
@@ -32,16 +51,16 @@ def preprocess_bank_reviews(input_dir="../data", output_dir="../data/cleaned"):
 
             # Save cleaned individual file
             df.to_csv(output_path, index=False)
-            print(f"Cleaned and saved {len(df)} reviews to {output_path}")
+            print(f" Saved cleaned file: {output_path}")
 
             combined_df.append(df)
 
         except FileNotFoundError:
-            print(f"File not found: {input_path}")
+            print(f" File not found: {input_path}")
 
     # Combine all into one DataFrame and save
     if combined_df:
         all_reviews = pd.concat(combined_df, ignore_index=True)
-        all_reviews.to_csv(os.path.join(output_dir, "all_banks_reviews_clean.csv"), index=False)
-        print(f"\nCombined cleaned dataset saved: {len(all_reviews)} total reviews")
-
+        combined_path = os.path.join(output_dir, "all_banks_reviews_clean.csv")
+        all_reviews.to_csv(combined_path, index=False)
+        print(f"\n Combined cleaned dataset saved: {combined_path} ({len(all_reviews)} total English reviews)")
