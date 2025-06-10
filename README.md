@@ -1,13 +1,13 @@
 
 #  Customer Experience Analytics for Fintech Apps
 
-This project provides a full pipeline for analyzing user experience and sentiment in fintech mobile app reviews. It combines natural language processing (NLP), data visualization, and topic modeling to extract insights from multilingual (English + Amharic) reviews collected from app stores.
+This project provides a full pipeline for analyzing user experience and sentiment in fintech mobile app reviews. It combines natural language processing (NLP), data visualization, and topic modeling to extract insights from banking app reviews collected from app stores.
 
 ---
 
 ## Project Overview
 
-This solution is part of a 10 Academy AI Mastery program. It includes:
+Taks
 
 -  **Task 1: Data Loading, Cleaning, and Exploration**
 -  **Task 2: Sentiment Analysis**
