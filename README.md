@@ -48,6 +48,11 @@ customer_experience_analytics_for_fintech_apps/
 │   ├── scraping.py                 # Data scraping scripts
 │   ├── sentiment_analysis.py       # Sentiment model and scoring
 │   └── topic_modeling.py            # BERTopic-based theme extraction
+|---db/
+|   └── db_config.py
+|   └── inset_reviews.py
+|   └── sample_data_reviweer.py
+|   └── schema.sql
 ├── notebooks/
 │   ├── analysis.ipynb
 │   ├── database_insertion.ipynb
